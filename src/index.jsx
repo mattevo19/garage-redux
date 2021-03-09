@@ -10,14 +10,15 @@ import carsReducer from './reducers/cars_reducer';
 import '../assets/stylesheets/application.scss';
 import CarsIndex from './containers/cars_index';
 // state and reducers
-const garageName =`garage${Math.floor(10 + (Math.random() * 90))}`;
+const garageName = prompt('Garage name?') || `garage${Math.floor(10 + (Math.random() * 90))}`
 const initialState = {
   garage: garageName,
   cars: [
-    { id: 1, brand: 'Peugeot', model: '106', owner: 'John', plate: 'WOB-ED-42' },
-    { id: 2, brand: 'Renault', model: 'Scenic', owner: 'Paul', plate: 'AAA-12-BC' },
-    { id: 3, brand: 'Aston Martin', model: 'DB Mark III', owner: 'James', plate: '418-ED-94' },
-    { id: 4, brand: 'VW', model: 'Beetle', owner: 'George', plate: '1234-XD-75' }
+    // { id: 1, brand: 'Peugeot', model: '106', owner: 'John', plate: 'WOB-ED-42' },
+    // { id: 2, brand: 'Renault', model: 'Scenic', owner: 'Paul', plate: 'AAA-12-BC' },
+    // { id: 3, brand: 'Aston Martin', model: 'DB Mark III', owner: 'James', plate: '418-ED-94' },
+    // { id: 4, brand: 'VW', model: 'Beetle', owner: 'George', plate: '1234-XD-75' },
+    // { id: 5, brand: 'BMW', model: 'M5', owner: 'Matt', plate: 'MATT19' }
   ]
 }
 
@@ -25,7 +26,6 @@ const reducers = combineReducers({
   // key: reducer
   garage: (state = null, action) => state,
   cars: carsReducer
-
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
