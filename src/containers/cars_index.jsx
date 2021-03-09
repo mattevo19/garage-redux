@@ -11,7 +11,7 @@ class CarsIndex extends Component {
     this.props.fetchCars(this.props.garage);
   }
 
-  render() {
+  render () {
     if (this.props.cars.length === 0) {
       return [
         <Aside key="aside" garage={this.props.garage}>
@@ -41,13 +41,13 @@ class CarsIndex extends Component {
       </div>
     ];
   }
-}
+};
 
 function mapStateToProps(state) {
   return {
     cars: state.cars,
     garage: state.garage
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
