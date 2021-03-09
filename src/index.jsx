@@ -6,9 +6,12 @@ import reduxPromise from 'redux-promise';
 import logger from 'redux-logger';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createHistory as history } from 'history';
-import carsReducer from './reducers/cars_reducer';
+
 import '../assets/stylesheets/application.scss';
+
+import carsReducer from './reducers/cars_reducer';
 import CarsIndex from './containers/cars_index';
+
 // state and reducers
 const garageName = prompt('Garage name?') || `garage${Math.floor(10 + (Math.random() * 90))}`
 const initialState = {
@@ -38,6 +41,7 @@ ReactDOM.render(
       <div className="view-container">
         <Switch>
           <Route path="/" exact component={CarsIndex} />
+          {/* <Route path="cars/new" exact component={CarsNew} />  */}
         </Switch>
       </div>
     </Router>
