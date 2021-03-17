@@ -34,6 +34,7 @@ class CarsIndex extends Component {
                 <ul>
                   <li><strong>Owner:</strong> {car.owner}</li>
                 </ul>
+                <span className="plate">{car.plate}</span>
               </div>
             </div>
           );
