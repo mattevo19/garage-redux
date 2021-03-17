@@ -16,7 +16,8 @@ import '../assets/stylesheets/application.scss';
 import carsReducer from './reducers/cars_reducer';
 
 // state and reducers
-const garageName = prompt('Garage name?') || `garage${Math.floor(10 + (Math.random() * 90))}`
+// const garageName = prompt('Garage name?') || `garage${Math.floor(10 + (Math.random() * 90))}`
+const garageName = 'matt';
 const initialState = {
   garage: garageName,
   cars: [

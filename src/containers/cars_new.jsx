@@ -13,6 +13,16 @@ class CarsNew extends Component {
     });
   }
 
+  renderField = ({ input, placeholder, label, type, meta: { touched, error } }) => (
+    <div className="form-group">
+      <label>{label}</label>
+        <input {...input} placeholder={placeholder} type={type} className="form-control"/>
+        {touched && (error && <span className="red">{error}</span>)}
+    </div>
+  )
+
+  required = (value) => value ? undefined : 'Required';
+  
   render () {
     return [
       <Aside key="aside" garage={this.props.garage}>
@@ -21,22 +31,28 @@ class CarsNew extends Component {
       <div key="add" className="form-container">
         <div className="overlay"></div>
         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-          <div className="form-group">
-            <label htmlFor="InputBrand">Brand</label>
-            <Field name="brand" type="text" placeholder="Aston Martin" component="input" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="InputModel">Model</label>
-            <Field name="model" type="text" placeholder="DB Mark III" component="input" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="InputOwner">Owner</label>
-            <Field name="owner" type="text" placeholder="James Bond" component="input" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="InputPlate">Plate</label>
-            <Field name="plate" type="text" placeholder="DB Mark III" component="input" className="form-control" />
-          </div>
+
+          <Field name="brand" type="text"
+          label="Brand" placeholder="Aston Martin"
+          component={this.renderField} 
+          validate={[this.required]} />
+
+          <Field name="model" type="text"
+          label="Model" placeholder="DB Mark III" 
+          component={this.renderField} 
+          validate={[this.required]} />
+         
+          <Field name="owner" type="text" 
+          label="Owner" placeholder="James Bond" 
+          component={this.renderField} 
+          validate={[this.required]} />
+      
+  
+          <Field name="plate" type="text" 
+          label="Plate" placeholder="DB Mark III" 
+          component={this.renderField} 
+          validate={[this.required]} />
+  
           <button type="submit">Add car</button>
         </form>
       </div>

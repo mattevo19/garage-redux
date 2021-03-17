@@ -11,18 +11,6 @@ export function fetchCars(garage) {
   };
 }
 
-export function removeCar(history, car) {
-  const url = `${BASE_URL}/cars/${car.id}`;
-  fetch(url, { method: 'DELETE' })
-    .then(r => r.json())
-    .then(() => history.push(""));
-
-  return {
-    type: 'REMOVE_CAR',
-    payload: car
-  };
-}
-
 export function addCar(garage, car, callback) {
   const url = `${BASE_URL}/${garage}/cars`;
   const request = fetch(url, {
